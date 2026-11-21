@@ -1,1 +1,0 @@
-teste: int = 67

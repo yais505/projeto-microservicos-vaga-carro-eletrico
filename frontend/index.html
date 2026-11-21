@@ -1,0 +1,104 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>EV Parking</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+        <h1>EV Parking</h1>
+        <p>Gerenciamento de estacionamento elétrico</p>
+    </header>
+
+    <main>
+        <section>
+            <h2>Vagas</h2>
+
+            <form id="form-vaga">
+                <input type="text" id="vaga-nome" placeholder="Nome da vaga" required>
+
+                <select id="vaga-tipo">
+                    <option value="normal">Normal</option>
+                    <option value="rapido">Rápido</option>
+                </select>
+
+                <input id="vaga-potencia" type="number"
+                    step="0.1" min="0.1" placeholder="Potência (kW)" required>
+
+                <input type="text" id="vaga-localizacao" placeholder="Localização" required>
+
+                <label>
+                    <input id="vaga-coberta" type="checkbox">
+                    Coberta
+                </label>
+
+                <button type="submit">Cadastrar vaga</button>
+            </form>
+
+            <button type="button" onclick="listarVagas()">Atualizar vagas</button>
+            <ul id="lista-vagas"></ul>
+        </section>
+
+        <section>
+            <h2>Reservas</h2>
+
+            <form id="form-reserva">
+                <input id="reserva-vaga" type="number"
+                    min="1" placeholder="ID da vaga" required>
+
+                <input type="text" id="reserva-cliente"
+                    placeholder="Nome do cliente" required>
+
+                <input id="reserva-data" type="date" required>
+
+                <input id="reserva-inicio" type="time" required>
+
+                <input id="reserva-fim" type="time" required>
+
+                <button type="submit">Criar reserva</button>
+            </form>
+
+            <button type="button" onclick="listarReservas()">Atualizar reservas</button>
+            <ul id="lista-reservas"></ul>
+        </section>
+
+        <section>
+            <h2>Mapa</h2>
+
+            <form id="form-mapa">
+                <input type="text"  id="mapa-nome" placeholder="Nome da vaga" required>
+
+                <input type="text" id="mapa-setor" placeholder="Setor" required>
+
+                <input id="mapa-andar" type="number"
+                    placeholder="Andar" required>
+
+                <input id="mapa-vaga" type="number"
+                    min="1" placeholder="ID da vaga" required>
+
+                <input id="mapa-x" type="number" step="any"
+                    placeholder="Coordenada X" required>
+
+                <input id="mapa-y" type="number" step="any"
+                    placeholder="Coordenada Y" required>
+
+                <select id="mapa-tipo">
+                    <option value="coberta">Coberta</option>
+                    <option value="descoberta">Descoberta</option>
+                </select>
+
+                <button type="submit">Cadastrar localização</button>
+            </form>
+
+            <button type="button" onclick="listarMapa()">Atualizar mapa</button>
+            <ul id="lista-mapa"></ul>
+        </section>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
