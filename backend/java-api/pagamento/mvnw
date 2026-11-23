@@ -1,0 +1,13 @@
+#!/bin/sh
+set -e
+BASEDIR=$(dirname "$0")
+DIST_DIR="$HOME/.m2/wrapper/dists/apache-maven-3.9.9"
+MVN_BIN="$DIST_DIR/apache-maven-3.9.9/bin/mvn"
+if [ ! -x "$MVN_BIN" ]; then
+  mkdir -p "$DIST_DIR"
+  curl -sL "https://repo.maven.apache.org/maven2/org/apache/maven/apache-maven/3.9.9/apache-maven-3.9.9-bin.zip" -o "$DIST_DIR/maven.zip"
+  unzip -qo "$DIST_DIR/maven.zip" -d "$DIST_DIR"
+  rm -f "$DIST_DIR/maven.zip"
+  chmod +x "$MVN_BIN"
+fi
+exec "$MVN_BIN" "$@"
