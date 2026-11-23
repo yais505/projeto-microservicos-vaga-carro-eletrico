@@ -1,7 +1,0 @@
-/**
- * placeholder
- */
-public class placeholder {
-
-    
-}
